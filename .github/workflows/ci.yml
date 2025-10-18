@@ -31,11 +31,11 @@ jobs:
           pip install -r requirements.txt
 
       - name: Authenticate GCP
-        if: ${{ secrets.GCP_SA_KEY != '' }}
-        run: |
-          echo "$GCP_SA_KEY" > $RUNNER_TEMP/gcloud-key.json
-          export GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/gcloud-key.json
-
+        uses: 'google-github-actions/auth@v3'
+        with:
+          # should contain the entire JSON key content
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+        
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
 
@@ -47,7 +47,6 @@ jobs:
         run: |
           mkdir -p results
           pytest --maxfail=1 --disable-warnings -q > results/pytest.txt || true
-        continue-on-error: false
 
       - name: Setup CML
         uses: iterative/setup-cml@v2
