@@ -27,8 +27,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          pip install -qr requirements.txt
+          python -m pip install --upgrade
+          pip install -qr requirements.txt --index-url https://pypi.org/simple/
 
       - name: Authenticate GCP
         uses: 'google-github-actions/auth@v3'
