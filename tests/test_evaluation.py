@@ -1,6 +1,7 @@
 # tests/test_evaluation.py
 import joblib
 import pandas as pd
+from pathlib import Path
 
 
 MODEL_PATH = Path(__file__).parent / "model.joblib"
