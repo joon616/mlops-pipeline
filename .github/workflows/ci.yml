@@ -46,7 +46,7 @@ jobs:
       - name: Run pytest and capture output
         run: |
           mkdir -p results
-          pytest --maxfail=1 --disable-warnings -q > results/pytest.txt || true
+          pytest -v --maxfail=1 --disable-warnings > results/pytest.txt || true
 
       - name: Setup CML
         uses: iterative/setup-cml@v2
