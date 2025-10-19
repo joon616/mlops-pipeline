@@ -27,7 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip setuptools wheel
+          python -m pip install --upgrade pip
           pip install -r requirements.txt 
 
       - name: Authenticate GCP
@@ -35,6 +35,9 @@ jobs:
         with:
           # should contain the entire JSON key content
           credentials_json: ${{ secrets.GCP_SA_KEY }}
+          
+      - name: Setup DVC
+        uses: iterative/setup-dvc@v2
 
       - name: Fetch data & model from GCS
         run: |

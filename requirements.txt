@@ -1,6 +1,4 @@
-pytest>=8.0.0
+pytest
 scikit-learn
 joblib
 pandas
-dvc[gs]
-cml
