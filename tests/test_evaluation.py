@@ -4,8 +4,9 @@ import pandas as pd
 from pathlib import Path
 
 
-MODEL_PATH = Path(__file__).parent / "model.joblib"
-DATA_PATH = Path(__file__).parent / "data" / "test.csv"
+TEST_PATH = Path(__file__).parent
+MODEL_PATH = TEST_PATH.parent / "model.joblib"
+DATA_PATH = TEST_PATH.parent / "data" / "test.csv"
 
 def test_model_accuracy_threshold():
     model = joblib.load(MODEL_PATH)

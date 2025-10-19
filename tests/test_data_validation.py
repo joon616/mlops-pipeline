@@ -4,7 +4,8 @@ import pandas as pd
 from pathlib import Path
 
 
-DATA_PATH = Path(__file__).parent / "data" / "test.csv"
+TEST_PATH = Path(__file__).parent
+DATA_PATH = TEST_PATH.parent / "data" / "test.csv"
 
 def test_data_schema_and_nulls():
     df = pd.read_csv(DATA_PATH)
