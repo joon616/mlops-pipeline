@@ -64,6 +64,6 @@ jobs:
           echo '' >> report.md
           # attach junit xml as raw artifact (optional)
           # post comment using CML
-          cml comment create --md report.md
+          cml comment create report.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
