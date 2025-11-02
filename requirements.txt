@@ -1,4 +1,8 @@
+dvc[gs]
 pytest
 scikit-learn
 joblib
 pandas
+fastapi
+uvicorn
+pydantic
